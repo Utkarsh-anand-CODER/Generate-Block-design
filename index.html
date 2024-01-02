@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <button onclick="generate()">Generate</button>
+    </div>
+    <script src="anime.min.js">
+        
+    </script>
+    <script>
+        const container = document.querySelector('.container');
+        for (var i = 1; i <= 100; i++) {
+            const block = document.createElement('div'); // Corrected variable name from 'blocks' to 'block'
+            block.classList.add('block');
+            container.appendChild(block); // Corrected variable name from 'conatiner' to 'container'
+        }
+
+        function generate() {
+            anime({
+                targets:'.block',
+                translateX:function(){
+                    return anime.random(-700,700)
+                },
+                translateY:function(){
+                    return anime.random(-700,700)
+                },
+                scale:function(){
+                    return anime.random(1,5)
+                }
+            })
+        }
+    </script>
+</body>
+</html>
